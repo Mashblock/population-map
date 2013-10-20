@@ -1,13 +1,11 @@
 require.config({
     paths: {
         jquery: '../bower_components/jquery/jquery',
-        leaflet: "//cdnjs.cloudflare.com/ajax/libs/leaflet/0.5.1/leaflet",
-        stamen: "http://maps.stamen.com/js/tile.stamen.js?v1.2.3",
+        leaflet: "../bower_components/leaflet/dist/leaflet",
+        leaflet_providers: "../bower_components/leaflet-providers/leaflet-providers",
         bing: "lib/Tilelayer.Bing",
-        underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min",
-        backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min",
-        d3: "//cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min",
-        topojson: "//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min",
+        d3: '../bower_components/d3/d3',
+        topojson: '../bower_components/topojson/topojson',
         bootstrapAffix: '../bower_components/sass-bootstrap/js/affix',
         bootstrapAlert: '../bower_components/sass-bootstrap/js/alert',
         bootstrapButton: '../bower_components/sass-bootstrap/js/button',
@@ -31,7 +29,7 @@ require.config({
         topojson:{
           exports: "topojson"
         },
-        stamen: {
+        leaflet_providers: {
           deps:["leaflet"],
           exports: "L"
         },

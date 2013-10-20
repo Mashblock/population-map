@@ -1,5 +1,5 @@
 `/*global define */`
-define ['jquery', 'leaflet', 'lib/d3_geojson', 'stamen', 'bing'], ($, L, d3_geoJSON)->
+define ['jquery', 'leaflet', 'lib/d3_geojson', 'leaflet_providers', 'bing'], ($, L, d3_geoJSON)->
   'use strict';
 
 
@@ -14,10 +14,10 @@ define ['jquery', 'leaflet', 'lib/d3_geojson', 'stamen', 'bing'], ($, L, d3_geoJ
     map._initPathRoot()
     aerial_layer = new L.BingLayer("AioX_SQM_XDp5BfH1I-OCboEHatcZYoa1XizAOcmUORnnFQr1jAzTF8sQIAfZBzy",{type:"Aerial"})
     maptypes =
-      "Map": new L.StamenTileLayer("toner-lite")
+      "Map": new L.tileLayer.provider('Stamen.TonerLite')
       "Hybrid" : L.layerGroup [
           aerial_layer
-          new L.StamenTileLayer("toner-hybrid")
+          new L.tileLayer.provider('Stamen.TonerHybrid')
         ]
     map.addLayer(maptypes["Map"])
     map.addControl(new L.Control.Layers(maptypes,{}))

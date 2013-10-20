@@ -182,7 +182,7 @@ module.exports = function (grunt) {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
                     // `name` and `out` is set by grunt-usemin
-                    baseUrl: '<%= yeoman.app %>/scripts',
+                    baseUrl: '.tmp/scripts',
                     optimize: 'none',
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
@@ -301,6 +301,24 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            js: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/scripts',
+                    dest: '.tmp/scripts',
+                    src: [
+                        '{,*/}*.js',
+                    ]
+                }]
+            }
+        },
+        symlink: {
+            js: {
+                dest: '.tmp/bower_components',
+                relativeSrc: '../app/bower_components',
+                options: {type: 'dir'}
             }
         },
         modernizr: {
@@ -323,6 +341,7 @@ module.exports = function (grunt) {
             ],
             dist: [
                 'compass',
+                'coffee',
                 'copy:styles',
                 'imagemin',
                 'svgmin',
@@ -368,6 +387,8 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
+        'copy:js',
+        'symlink',
         'requirejs',
         'concat',
         'cssmin',
