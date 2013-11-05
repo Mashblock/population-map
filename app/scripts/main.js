@@ -6,6 +6,8 @@ require.config({
         bing: "lib/Tilelayer.Bing",
         d3: '../bower_components/d3/d3',
         topojson: '../bower_components/topojson/topojson',
+        underscore: "../bower_components/underscore/underscore-min",
+        backbone: "../bower_components/backbone/backbone-min",
         bootstrapAffix: '../bower_components/sass-bootstrap/js/affix',
         bootstrapAlert: '../bower_components/sass-bootstrap/js/alert',
         bootstrapButton: '../bower_components/sass-bootstrap/js/button',

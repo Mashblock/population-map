@@ -7,6 +7,7 @@ $font-family-sans-serif: 'Lato', sans-serif;
 @import 'sass-bootstrap/lib/bootstrap';
 @import "compass/css3/transition";
 @import 'colorbrewer';
+// @import 'non-responsive';
 
 .browsehappy {
     margin: 0.2em 0;
@@ -15,18 +16,18 @@ $font-family-sans-serif: 'Lato', sans-serif;
     padding: 0.2em 0;
 }
 
-h1{
-  font-weight: bold;
-  text-shadow: #fff 0 0 2px;
-}
-
 $shades: cbrew("PuBuGn",5);
 
 #map{
-  height: 400px;
-  @media (max-width: 768px){
-    height: 280px;
-  }
+  // height: 400px;
+  // @media (max-width: 768px){
+  //   height: 280px;
+  // }
+  position: absolute;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   img[src*='virtualearth'] { -webkit-filter: grayscale(100%) brightness(200%) contrast(100%);}
   .poly{
     @include transition-property(fill, fill-opacity, stroke-width);
@@ -58,4 +59,14 @@ $shades: cbrew("PuBuGn",5);
       fill: nth($shades,5);
     }
   }
+}
+div.infobar{
+  padding: 10px 0;
+  position:absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  background: rgba($navbar-default-bg, 0.7);
+  border-top: solid 1px $navbar-default-border;
+  border-bottom: solid 1px $navbar-default-border;
 }

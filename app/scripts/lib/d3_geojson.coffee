@@ -7,7 +7,7 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
       @g = @svg.append("g")
         .attr("fill-rule","evenodd")
 
-      @scale = d3.scale.quantile().domain([0, 576.0, 1482.0, 2508.0, 3622.2, 11700.0])
+      @scale = d3.scale.quantile().domain(@options.quantiles)
         .range(["quan_1","quan_2","quan_3","quan_4","quan_5"])
 
       @g.append("svg:clipPath")

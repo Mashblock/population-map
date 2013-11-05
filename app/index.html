@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Population Maps</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <!-- <meta name="viewport" content="width=device-width"> -->
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
@@ -21,16 +21,32 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class='container'>
-          <ul id='year_toggles' class="nav nav-pills pull-right">
-            <li><a href="#" data-year="2001">2001</a></li>
-            <li><a href="#" data-year="2006">2006</a></li>
-            <li class="active" ><a href="#" data-year="2013">2013</a></li>
-          </ul>
-          <h1>Population Maps</h1>
-        </div>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <strong class="navbar-brand text-muted">Population Maps</strong>
+          </div>
+
+        </nav>
 
         <div id="map"></div>
+        <div class="infobar">
+          <div class="container">
+            <div class="row" id="area-info"></div>
+            <div class="row">
+              <ul id='year_toggles' class="nav nav-pills nav-justified">
+                <li><a href="#" data-year="2001"><strong>2001</strong></a></li>
+                <li><a href="#" data-year="2006"><strong>2006</strong></a></li>
+                <li class="active" ><a href="#" data-year="2013"><strong>2013</strong></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
