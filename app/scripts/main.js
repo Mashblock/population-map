@@ -8,6 +8,7 @@ require.config({
         topojson: '../bower_components/topojson/topojson',
         underscore: "../bower_components/underscore/underscore-min",
         backbone: "../bower_components/backbone/backbone-min",
+        marionette: "../bower_components/marionette/lib/backbone.marionette.min",
         bootstrapAffix: '../bower_components/sass-bootstrap/js/affix',
         bootstrapAlert: '../bower_components/sass-bootstrap/js/alert',
         bootstrapButton: '../bower_components/sass-bootstrap/js/button',
@@ -45,6 +46,10 @@ require.config({
         backbone: {
           deps:["jquery", "underscore"],
           exports: "Backbone"
+        },
+        marionette:{
+          deps:["backbone"],
+          exports: "Marionette"
         },
         bootstrapAffix: {
             deps: ['jquery']
@@ -85,8 +90,9 @@ require.config({
     }
 });
 
-require(["app"], function () {
+require(["jquery", "app"], function ($, App) {
     'use strict';
-    // use app here
-    require('app');
+    $(document).ready(function(){
+      App.start()
+    });
 });

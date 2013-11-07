@@ -8,7 +8,7 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
         .attr("fill-rule","evenodd")
 
       @scale = d3.scale.quantile().domain(@options.quantiles)
-        .range(["quan_1","quan_2","quan_3","quan_4","quan_5"])
+        .range(["quan_1","quan_2","quan_3","quan_4","quan_5","quan_6","quan_7","quan_8"])
 
       @g.append("svg:clipPath")
         .attr("id","tilemask")
@@ -57,10 +57,24 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
             .attr("d", tile.path)
             .attr("class", (d)=> "#{@options.class} #{@scale(d.properties[@year])}")
             .attr("data-code",(d)-> d.properties.code)
+            .classed("highlighted", (d)=> d.properties.code == @current_code)
             .on("mouseover", (d)=> @svg.selectAll("path[data-code='#{d.properties.code}']").classed("hover",true))
             .on("mouseout", (d)=> @svg.selectAll("path[data-code='#{d.properties.code}']").classed("hover",false))
+            .on("click", (d)=> @highlight(d.properties))
             .append("title")
               .text((d)=> "#{d.properties.name} - #{d.properties[@year]}")
+
+    highlight: (properties)->
+      @g.selectAll("path").classed("highlighted",false)
+      if properties.code != @current_code
+        @current_code = properties.code
+        @g.selectAll("path[data-code='#{@current_code}']").classed("highlighted", true)
+        @fire("area_select", properties)
+      else
+        @current_code = null
+        @fire("area_unselect", properties)
+
+
 
     showYear:(year)->
       @year = "pop_#{year}"

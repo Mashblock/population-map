@@ -3,7 +3,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import url(//cdnjs.cloudflare.com/ajax/libs/leaflet/0.6.4/leaflet.min.css);
 
 $font-family-sans-serif: 'Lato', sans-serif;
-
+$brand-primary: #3c5a76;
 @import 'sass-bootstrap/lib/bootstrap';
 @import "compass/css3/transition";
 @import 'colorbrewer';
@@ -16,7 +16,7 @@ $font-family-sans-serif: 'Lato', sans-serif;
     padding: 0.2em 0;
 }
 
-$shades: cbrew("PuBuGn",5);
+$shades: cbrew("PuBuGn",8);
 
 #map{
   // height: 400px;
@@ -39,7 +39,7 @@ $shades: cbrew("PuBuGn",5);
     stroke-width: 1;
     stroke-linejoin: round;
     cursor: pointer;
-    &.hover{
+    &.hover, &.highlighted{
       stroke-width: 2;
       fill-opacity: 0.75;
     }
@@ -58,6 +58,15 @@ $shades: cbrew("PuBuGn",5);
     &.quan_5{
       fill: nth($shades,5);
     }
+    &.quan_6{
+      fill: nth($shades,6);
+    }
+    &.quan_7{
+      fill: nth($shades,7);
+    }
+    &.quan_8{
+      fill: nth($shades,8);
+    }
   }
 }
 div.infobar{
@@ -69,4 +78,9 @@ div.infobar{
   background: rgba($navbar-default-bg, 0.7);
   border-top: solid 1px $navbar-default-border;
   border-bottom: solid 1px $navbar-default-border;
+  .pop_count{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+  }
 }
