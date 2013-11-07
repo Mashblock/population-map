@@ -1,5 +1,5 @@
-define ["underscore", "marionette"], (_, Marionette)->
-  class AreaDetails extends Marionette.ItemView
+define ["underscore", "marionette"], (_, Backbone)->
+  class AreaDetails extends Backbone.Marionette.ItemView
     template: _.template """
       <h4 class='text-center'><%= name %></h4>
       <div class='col-sm-4 pop_count'><%= pop_2001 %></div>

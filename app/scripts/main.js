@@ -8,7 +8,7 @@ require.config({
         topojson: '../bower_components/topojson/topojson',
         underscore: "../bower_components/underscore/underscore-min",
         backbone: "../bower_components/backbone/backbone-min",
-        marionette: "../bower_components/marionette/lib/backbone.marionette.min",
+        marionette: "../bower_components/marionette/lib/backbone.marionette",
         bootstrapAffix: '../bower_components/sass-bootstrap/js/affix',
         bootstrapAlert: '../bower_components/sass-bootstrap/js/alert',
         bootstrapButton: '../bower_components/sass-bootstrap/js/button',
@@ -49,7 +49,7 @@ require.config({
         },
         marionette:{
           deps:["backbone"],
-          exports: "Marionette"
+          exports: "Backbone"
         },
         bootstrapAffix: {
             deps: ['jquery']

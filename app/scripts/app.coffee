@@ -1,10 +1,10 @@
 `/*global define */`
-define ['jquery', 'leaflet', "marionette", 'collections/layer_collection', "views/layer_menu", 'leaflet_providers', 'bing'], ($, L, Marionette, LayerCollection, LayerMenu)->
+define ['jquery', 'leaflet', "marionette", 'collections/layer_collection', "views/layer_menu", 'leaflet_providers', 'bing'], ($, L, Backbone, LayerCollection, LayerMenu)->
   'use strict';
 
   nz_bounds = [[-47.54687159892238, 164.9267578125],[-34.34343606848293, 182.50488281249997]]
 
-  App = new Marionette.Application()
+  App = new Backbone.Marionette.Application()
 
   App.layers = new LayerCollection [
     {slug: "area_unit_vector", name: "Area Unit", quantiles: [0, 210, 576, 1074.375, 1747.5, 2427, 3087, 3972, 11700]}

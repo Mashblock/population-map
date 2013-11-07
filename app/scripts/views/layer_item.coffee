@@ -1,5 +1,5 @@
-define ["backbone", "marionette"], (Backbone, Marionette)->
-  class LayerItem extends Marionette.ItemView
+define ["backbone", "marionette"], (Backbone)->
+  class LayerItem extends Backbone.Marionette.ItemView
     tagName: "li"
     template: _.template("<a href='#'><%= name %></a>")
 
