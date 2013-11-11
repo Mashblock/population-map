@@ -6,44 +6,63 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Population Maps</title>
+        <title>Population Map</title>
         <meta name="description" content="">
         <!-- <meta name="viewport" content="width=device-width"> -->
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/c664d6b5.main.css">
+        <link rel="stylesheet" href="styles/28a47e48.main.css">
         <script src="scripts/vendor/f7f27360.modernizr.js"></script>
     </head>
     <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <strong class="navbar-brand text-muted">Population Maps</strong>
-          </div>
-          <span id="layer_menu"></span>
-        </nav>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <div class="application">
+          <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="navbar-header">
+              <span class="navbar-brand text-muted"><span class="mashblock-open">Mashblock Open</span> | <strong>Population Map</strong></span>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" data-toggle="modal" data-target="#aboutModal">About</a></li>
+            </ul>
+            <span id="layer_menu"></span>
+          </nav>
 
-        <div id="map"></div>
-        <div class="infobar">
-          <div class="container">
-            <div class="row" id="area-info"></div>
-            <div class="row">
-              <ul id="year_toggles" class="nav nav-pills nav-justified">
-                <li><a href="#" data-year="2001"><strong>2001</strong></a></li>
-                <li><a href="#" data-year="2006"><strong>2006</strong></a></li>
-                <li class="active"><a href="#" data-year="2013"><strong>2013</strong></a></li>
-              </ul>
+          <div id="map"></div>
+          <div id="legend"></div>
+          <div class="infobar">
+            <div class="container">
+              <div class="row" id="area-info"></div>
+              <div class="row">
+                <ul id="year_toggles" class="nav nav-pills nav-justified">
+                  <li><a href="#" data-year="2001"><strong>2001</strong></a></li>
+                  <li><a href="#" data-year="2006"><strong>2006</strong></a></li>
+                  <li class="active"><a href="#" data-year="2013"><strong>2013</strong></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="aboutLabel">About the Population Map</h4>
+                </div>
+                <div class="modal-body text-center">
+                  <p>Population Map is an interactive geospatial visualisation of the Usual Resident Population Counts from the 2013 New Zealand Census.</p>
+                  <p>
+                    The 2013 Census population counts are provided by
+                    <a target="_blank" href="http://www.stats.govt.nz/browse_for_stats/population/census_counts/2013CensusUsuallyResidentPopulationCounts_HOTP2013Census.aspx">Statistics New Zealand</a>.
+                  </p>
+                  <p>This Mashup is part of the <a href="http://open.mashblock.co.nz/">Mashblock Open Collection</a>.</p>
+                  <p><a href="https://github.com/Mashblock/population_maps/fork">Fork this project on Github</a>.</p>
+                  <p><a href="https://o.ribbon.co/c5d2f9">Donate to Mashblock</a>.</p>
+                  <p>&copy; 2013 <a href="http://cameron-prebble.com">Cameron Prebble</a>.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -52,9 +71,9 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-20171418-2');ga('send','pageview');
         </script>
 
-        <script data-main="scripts/8af046a3.main" src="bower_components/requirejs/require.js"></script>
+        <script data-main="scripts/d5af31a5.main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>
