@@ -31,6 +31,15 @@ define ['jquery', 'leaflet', "marionette", 'collections/layer_collection', "view
     @map.addLayer(maptypes["Map"])
     @map.addControl(new L.Control.Layers(maptypes,{}))
 
+    toggle_zoomtip = =>
+      current_layer = App.layers.findWhere(selected: true)
+      if @map.getZoom() < current_layer?.get("min_zoom")
+        $("#zoomtip").show()
+      else
+        $("#zoomtip").hide()
+    @map.on "zoomend", toggle_zoomtip
+    @map.on "layeradd", toggle_zoomtip
+
   App.addInitializer ->
     @layerMenu.show new LayerMenu(collection: @layers)
     @layers.findWhere(name: "Regional Council").set("selected", true)

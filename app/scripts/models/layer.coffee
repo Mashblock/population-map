@@ -13,6 +13,7 @@ define ["backbone", "leaflet", 'lib/d3_geojson', 'views/area_details', 'views/le
           App.map?.removeLayer(@d3Layer())
           @hideAreaDetails()
 
+
       @d3Layer().on( "area_select", @showAreaDetails)
         .on( "area_unselect", @hideAreaDetails)
 
