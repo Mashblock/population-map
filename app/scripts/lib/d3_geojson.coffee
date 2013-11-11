@@ -1,3 +1,5 @@
+`// Based from a demo by Ziggy Jonsson https://gist.github.com/ZJONSSON/5529395`
+
 define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
   class d3_geoJSON extends L.TileLayer
     onAdd: (map)->
