@@ -1,4 +1,4 @@
-define ["backbone", "leaflet", 'lib/d3_geojson', 'views/area_details'], (Backbone, L, d3_geoJSON, AreaDetails)->
+define ["backbone", "leaflet", 'lib/d3_geojson', 'views/area_details', 'views/legend'], (Backbone, L, d3_geoJSON, AreaDetails, Legend)->
   class Layer extends Backbone.Model
     defaults:
       "selected": false
@@ -8,6 +8,7 @@ define ["backbone", "leaflet", 'lib/d3_geojson', 'views/area_details'], (Backbon
         App = require("app")
         if @get("selected")
           App.map?.addLayer(@d3Layer())
+          App.legend.show new Legend(model: @)
         else
           App.map?.removeLayer(@d3Layer())
           @hideAreaDetails()

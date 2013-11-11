@@ -7,8 +7,10 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
       @g = @svg.append("g")
         .attr("fill-rule","evenodd")
 
+      range = ("quan_#{i}" for i in [1..8])
+
       @scale = d3.scale.quantile().domain(@options.quantiles)
-        .range(["quan_1","quan_2","quan_3","quan_4","quan_5","quan_6","quan_7","quan_8"])
+        .range(range)
 
       @g.append("svg:clipPath")
         .attr("id","tilemask")
@@ -80,6 +82,7 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
       @year = "pop_#{year}"
       paths = @g.selectAll("path")
       paths.attr("class", (d)=> "#{@options.class} #{@scale(d.properties[@year])}")
+        .classed("highlighted", (d)=> d.properties.code == @current_code)
       paths.select("title")
         .text((d)=> "#{d.properties.name} - #{d.properties[@year]}")
 

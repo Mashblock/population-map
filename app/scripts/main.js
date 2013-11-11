@@ -93,6 +93,8 @@ require.config({
 require(["jquery", "app"], function ($, App) {
     'use strict';
     $(document).ready(function(){
-      App.start()
+      if (Modernizr.svg){
+        App.start();
+      }
     });
 });
