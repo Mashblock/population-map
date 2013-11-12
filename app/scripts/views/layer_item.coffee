@@ -16,4 +16,5 @@ define ["backbone", "marionette"], (Backbone)->
     onSelect: ->
       @model.collection?.findWhere("selected": true)?.set("selected", false)
       @model.set("selected", true)
+      false
 
