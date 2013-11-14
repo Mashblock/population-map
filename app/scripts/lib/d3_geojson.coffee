@@ -1,6 +1,6 @@
 `// Based from a demo by Ziggy Jonsson https://gist.github.com/ZJONSSON/5529395`
 
-define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
+define ["jquery","leaflet", "d3", "topojson","bootstrapTooltip"], ($, L, d3, topojson)->
   class d3_geoJSON extends L.TileLayer
     onAdd: (map)->
       super(map)
@@ -61,12 +61,18 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
             .attr("d", tile.path)
             .attr("class", (d)=> "#{@options.class} #{@scale(d.properties[@year])}")
             .attr("data-code",(d)-> d.properties.code)
+            .attr("data-toggle", "tooltip")
+            .attr("data-trigger", "hover")
+            .attr("data-container", "body")
+            .attr("data-placement", "auto left")
+            .attr("data-title", (d)=> "#{d.properties.name} - #{d.properties[@year]}")
             .classed("highlighted", (d)=> d.properties.code == @current_code)
             .on("mouseover", (d)=> @svg.selectAll("path[data-code='#{d.properties.code}']").classed("hover",true))
             .on("mouseout", (d)=> @svg.selectAll("path[data-code='#{d.properties.code}']").classed("hover",false))
             .on("click", (d)=> @highlight(d.properties))
-            .append("title")
-              .text((d)=> "#{d.properties.name} - #{d.properties[@year]}")
+            # .append("title")
+            #   .text((d)=> "#{d.properties.name} - #{d.properties[@year]}")
+          $("[data-toggle=tooltip]").tooltip()
 
     highlight: (properties)->
       @g.selectAll("path").classed("highlighted",false)
@@ -85,7 +91,8 @@ define ["leaflet", "d3", "topojson"], (L, d3, topojson)->
       paths = @g.selectAll("path")
       paths.attr("class", (d)=> "#{@options.class} #{@scale(d.properties[@year])}")
         .classed("highlighted", (d)=> d.properties.code == @current_code)
-      paths.select("title")
-        .text((d)=> "#{d.properties.name} - #{d.properties[@year]}")
+        .attr("data-title", (d)=> "#{d.properties.name} - #{d.properties[@year]}")
+      # paths.select("title")
+      #   .text((d)=> "#{d.properties.name} - #{d.properties[@year]}")
 
 
